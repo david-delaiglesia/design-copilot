@@ -66,6 +66,70 @@ No generar nunca desde cero sin haber leído el nodo de Figma.
 - Omitir el label en inputs
 - Implementar sin leer el nodo de Figma
 - **Interpretar, asumir o inferir cualquier dato no especificado en el brief — siempre preguntar antes**
+- **Modificar un componente del DS por cuenta propia** — los componentes se usan tal cual están definidos, sin alterar su estructura, props o estilos internos
+- **Inventar una solución cuando el componente no soporta algo** — en ese caso, parar y notificar (ver sección "Integridad de componentes")
+
+---
+
+## Integridad de componentes
+
+**Los componentes del DS son inmutables.** Se usan tal cual están definidos — nunca se modifican, extienden ni adaptan por cuenta propia.
+
+**Cuando el brief pide algo que un componente no permite:**
+Parar. No inventar. No aproximar. Notificar al diseñador con este mensaje exacto:
+
+> "Ese cambio va en contra de lo definido en el design system. No es posible realizarlo con los componentes actuales. Si es necesario, escálalo para que alguien lo cree y lo suba al repositorio."
+
+**Cuando el brief describe un patrón que no existe en el DS:**
+Avisar antes de implementar:
+
+> "Para [X] no existe un componente en el design system. ¿Quieres que lo construya con elementos base del DS, o lo escalamos para crear el componente?"
+
+**Cuando hay incoherencia entre vistas:**
+No implementar sin avisar:
+
+> "Esto no es consistente con [pantalla existente] — en esa pantalla [campo X] aparece en [posición Y]. ¿Quieres ajustarlo o procedo de todas formas?"
+
+---
+
+## Dark y light mode
+
+Todo proyecto piloto soporta ambos modos por defecto.
+
+- Si el brief no especifica tema → usar configuración del dispositivo (`prefers-color-scheme`)
+- Si el brief especifica un tema → aplicarlo, pero sin eliminar el soporte para el otro
+- **Nunca forzar un tema sin que el brief lo indique explícitamente**
+- Los tokens del DS ya contemplan ambos modos — usar siempre `var(--token)`, nunca valores hex
+
+---
+
+## PWA — obligatorio en todo proyecto piloto
+
+Todo starter debe estar configurado como PWA para funcionar sin barra de navegador
+al añadirse a la pantalla de inicio (iOS y Android).
+
+**`public/manifest.json`** — debe existir con al menos:
+```json
+{
+  "name": "[nombre del proyecto]",
+  "short_name": "[nombre corto]",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "[valor de background/secondary del DS]",
+  "theme_color": "[valor de background/secondary del DS]",
+  "icons": []
+}
+```
+
+**`index.html`** — debe incluir en `<head>`:
+```html
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+```
+
+Si alguno de estos archivos no existe o está incompleto → crearlo o completarlo
+como parte de la generación. No es opcional.
 
 ---
 

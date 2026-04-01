@@ -199,5 +199,8 @@ Todos en `ds/src/components/`:
 - Reglas documentadas en CLAUDE.md
 - Clases utilitarias en global.css
 - SSH configurado para push directo
+- Integridad de componentes codificada — el copilot no modifica ni improvisa
+- Dark y light mode por defecto (prefers-color-scheme)
+- PWA obligatorio en todo starter nuevo
 
 El siguiente paso natural es iterar sobre el skill y las reglas a partir del uso real con diseñadores.
