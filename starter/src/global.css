@@ -247,6 +247,57 @@ html, body, #root {
   color: var(--label\/tertiary);
 }
 
+/* ── Caja contenedora para listas de ListItems ──
+ * Todo grupo de ListItem va SIEMPRE dentro de .list-box.
+ * Los ListItems nunca van sueltos sobre el fondo de la app.
+ */
+.list-box {
+  background: var(--background-content-box\/secondary);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow\/small);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 24px 0;
+}
+
+.section-header .section-title {
+  margin-bottom: 0;
+}
+
+.dialog-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.action-center {
+  padding: 0 24px 120px;
+  display: flex;
+  justify-content: center;
+}
+
+.delete-action {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--colors\/tomato-100);
+  font-size: 12px;
+  font-family: var(--font-family);
+}
+
+.empty-state-action {
+  margin-top: 24px;
+}
+
+.section-spacing {
+  margin-top: 32px;
+}
+
 /* Theme Switch */
 .theme-switch {
   position: relative;

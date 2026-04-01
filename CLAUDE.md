@@ -59,6 +59,9 @@ No generar nunca desde cero sin haber leído el nodo de Figma.
 - Poner botones dentro de Cards
 - Anidar Cards dentro de Cards
 - Hardcodear colores o tamaños sin usar variables CSS
+- **Usar estilos inline (`style={{}}`) en JSX — todos los estilos van en clases CSS en `global.css` usando tokens del DS**
+- Renderizar ListItems sueltos sin su caja contenedora (`.list-box`)
+- Poner un gap distinto de 8px entre un título de sección (`.section-title`) y el bloque de contenido que le sigue (lista, card, bloque). **Siempre 8px de separación título→contenido, sin excepción**
 - Añadir contenido no especificado en el brief
 - Omitir el label en inputs
 - Implementar sin leer el nodo de Figma
@@ -89,6 +92,28 @@ No generar nunca desde cero sin haber leído el nodo de Figma.
 - Header y Tab bar siempre fijos — nunca hacen scroll
 - Todo el contenido hace scroll
 - **Ancho máximo del área de contenido: 600px, centrada horizontalmente** (`max-width: 600px; margin: 0 auto`). Aplica en todos los breakpoints. En desktop/tablet el contenido nunca supera ese ancho aunque haya más espacio disponible.
+
+## Clases utilitarias del starter
+
+El starter incluye clases CSS listas para usar. **La IA debe usar estas clases en lugar de escribir estilos inline (`style={{}}`).** Si necesita un estilo no cubierto, debe crear una clase nueva en `global.css` — nunca inline.
+
+| Clase | Uso |
+|---|---|
+| `.list-box` | **Obligatoria** — envuelve todo grupo de `ListItem`. Fondo, border-radius 16px, overflow hidden, sombra |
+| `.detalle-block` | Bloque de datos key-value (filas label↔value). Fondo, border-radius, padding, sombra |
+| `.listado-wrapper` | Wrapper de listados completos (padding 32px 24px 120px) |
+| `.section-title` | Título de sección. **Gap de 8px** entre el título y el bloque de contenido que le sigue — irrenunciable |
+| `.section-header` | Sección con título a la izquierda y acción a la derecha |
+| `.dialog-inputs` | Agrupa inputs dentro de un Dialog (flex column, gap 16px) |
+| `.action-center` | Centra un botón con padding inferior |
+| `.delete-action` | Botón de eliminar en accessory de ListItem (tomato-100, sin fondo) |
+| `.empty-state` / `.empty-state-text` | Estado vacío centrado |
+| `.avatar` / `.avatar--large` / `.avatar--xlarge` | Avatar circular con iniciales |
+| `.detalle-header-section` | Cabecera de detalle (avatar + nombre + email centrados) |
+
+**Regla absoluta: cero `style={{}}` en JSX. Todo va en clases CSS con tokens del DS.**
+
+---
 
 ## Tab Bar
 
@@ -160,6 +185,7 @@ No generar nunca desde cero sin haber leído el nodo de Figma.
 - Chevron (›) es icono, no botón — onClick en la fila entera
 - Siempre divider entre filas
 - Icono opcional según brief — preguntar si no se especifica
+- **Caja obligatoria:** Todo grupo de ListItems va siempre dentro de un contenedor `.list-box` con `background-content-box/secondary`, `border-radius: 16px`, `overflow: hidden` y `shadow/small`. Los ListItems NUNCA van sueltos sobre el fondo de la app — sin excepción
 
 ### Dialogs
 
