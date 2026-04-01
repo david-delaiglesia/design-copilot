@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  min-height: 100%;
+  font-family: var(--font-family);
+  background: var(--background\/primary);
+  color: var(--label\/secondary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Layout principal */
+.app-layout {
+  position: relative;
+}
+
+.app-content {
+  padding-top: 80px; /* Espacio para el header fijo */
+  padding-bottom: 100px; /* Espacio para tab bar mobile */
+  max-width: 744px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Tablet/Desktop: centrar columna en el espacio libre tras el tab bar */
+@media (min-width: 600px) {
+  .app-content {
+    max-width: 744px;
+    padding-bottom: 32px;
+    /* Centrar en el espacio a la derecha del tab bar (78px) */
+    margin-left: max(78px, calc((100vw + 78px - 744px) / 2));
+    margin-right: auto;
+  }
+}
+
+/* Cuando el li-icon-bg contiene un avatar de persona, forzar forma circular.
+ * El DS usa border-radius: 8px por defecto — las fotos de personas siempre son round. */
+.li-icon-bg:has(.avatar) {
+  border-radius: 50%;
+  background: transparent;
+}
+
+/* Avatar con iniciales */
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--label\/oncolor);
+  background: var(--colors\/pitufo-100);
+  flex-shrink: 0;
+}
+
+.avatar--large {
+  width: 80px;
+  height: 80px;
+  font-size: 28px;
+}
+
+.avatar--xlarge {
+  width: 120px;
+  height: 120px;
+  font-size: 40px;
+}
+
+/* Estado badge (accessory del ListItem) */
+.estado-badge {
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Pantalla de detalle */
+.detalle-header-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 32px 24px 0;
+}
+
+.detalle-nombre {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--label\/secondary);
+}
+
+.detalle-nombre--editable {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--font-family);
+  text-align: center;
+}
+
+.detalle-email {
+  font-size: 14px;
+  color: var(--label\/tertiary);
+}
+
+.detalle-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px 24px 120px;
+}
+
+/* Bloque de detalle — componente Figma sin equivalente en el DS
+ * Referencia: nodo 15752:1826 (Viajes), seguir fielmente
+ * border-radius: 16px | padding: 16px | gap título↔filas: 24px | shadow/small
+ */
+.detalle-block {
+  background: var(--background-content-box\/secondary);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-shadow: var(--shadow\/small);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.detalle-block__title {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--label\/secondary);
+}
+
+.detalle-block__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.detalle-block__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detalle-block__label {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--label\/tertiary);
+}
+
+.detalle-block__value {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--label\/secondary);
+  text-align: right;
+}
+
+/* Contenido dentro de Cards (DS) — se mantiene para otros usos */
+.card-content {
+  padding: 12px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card-content-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.card-content-label {
+  font-size: 14px;
+  color: var(--label\/tertiary);
+  flex-shrink: 0;
+  min-width: 70px;
+}
+
+.card-content-value {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--label\/secondary);
+  text-align: right;
+}
+
+.card-content-value--bold {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Section title */
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--label\/secondary);
+  margin-bottom: 8px;
+}
+
+/* Cards list: flex column con gap entre cards */
+.cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Listado wrapper */
+.listado-wrapper {
+  padding: 32px 24px 120px;
+}
+
+/* Configuración */
+.config-wrapper {
+  padding: 32px 24px 24px;
+}
+
+.config-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--fills\/primary);
+  color: var(--label\/secondary);
+}
+
+/* Empty state */
+.empty-state {
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.empty-state-text {
+  font-size: 16px;
+  color: var(--label\/tertiary);
+}
+
+/* Theme Switch */
+.theme-switch {
+  position: relative;
+  width: 51px;
+  height: 31px;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  background: var(--fills\/primary);
+  transition: background 0.2s ease;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.theme-switch[aria-checked="true"] {
+  background: var(--colors\/pitufo-100);
+}
+
+.theme-switch__thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background: var(--colors\/white);
+  transition: transform 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.theme-switch[aria-checked="true"] .theme-switch__thumb {
+  transform: translateX(20px);
+}

@@ -1,0 +1,46 @@
+/**
+ * DatePicker — estilos específicos
+ * Nodo Figma: 9874:6596
+ *
+ * El calendario es el nativo del sistema (Figma: "Date picker del sistema").
+ * Solo se estiliza el trigger visible — el <input type="date"> está oculto.
+ */
+
+/* Trigger visible — heredado de si-box, ajuste cursor */
+/* gap-[16px] en Figma entre texto y calendario icon */
+.dp-box {
+  cursor: pointer;
+  gap: 16px;
+  user-select: none;
+}
+
+.dp-box:focus-visible {
+  outline: 2px solid var(--colors\/pitufo-100);
+  outline-offset: 2px;
+}
+
+/* Borde activo cuando el picker está abierto — acento */
+.dp-box--open {
+  border-color: var(--colors\/pitufo-100);
+}
+
+/* Icono calendario */
+.dp-calendar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--label\/tertiary);
+}
+
+/* Input nativo — completamente oculto visualmente */
+.dp-native {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
+}

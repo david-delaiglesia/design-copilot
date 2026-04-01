@@ -1,0 +1,179 @@
+/**
+ * DS Back Office Mobile — Design Tokens
+ * Fuente de verdad: Figma file FEljlfuJJLO8TzfwShLKoR
+ *
+ * NUNCA usar valores hex directamente en componentes — siempre el token.
+ * El tema se activa añadiendo data-theme="dark"|"light" al elemento <html>.
+ *
+ * Valores 100% confirmados contra Figma:
+ *   dark  → nodo 10259:5336
+ *   light → nodo 10259:5161
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TOKENS INVARIANTES (iguales en ambos temas)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Tipografía */
+  --font-family: 'Roboto', sans-serif;
+
+  /* Border radius */
+  --borderradius\/full: 100px;
+  --borderradius\/m: 12px;
+  --borderradius\/s: 8px;
+
+  /* Colores base sin modo */
+  --colors\/white: #ffffff;
+  --colors\/black: #000000;
+
+  /* Pitufo-60 — mismo valor en ambos temas */
+  --colors\/pitufo-60: #0a89ff99; /* rgba(10,137,255,0.6) */
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TEMA DARK
+   Confirmado: nodo Figma 10259:5336
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root,
+:root[data-theme="dark"] {
+
+  /* ── Colores de acción ──────────────────────────────────────────────── */
+  --colors\/pitufo-100: #0a89ff;
+  --colors\/pitufo-10:  #0a89ff1a;
+
+  --colors\/tomato-100: #ff4343;
+  --colors\/tomato-60:  #ff434399;
+  --colors\/tomato-10:  #ff43431a;
+
+  --colors\/cucumber-100: #00ab61;
+  --colors\/cucumber-60:  #00ab6199;
+  --colors\/cucumber-10:  #00ab611a;
+
+  --colors\/egg-100: #fcb831;
+  --colors\/egg-60:  #fcb83199;
+  --colors\/egg-10:  #fcb8311a;
+
+  --colors\/plum-100: #d744d1;
+  --colors\/plum-15:  #d744d126;
+
+  --colors\/valencia-100: #ff7243;
+  --colors\/valencia-60:  #ff724399;
+  --colors\/valencia-10:  #ff72431a;
+
+  /* ── Texto (label) ──────────────────────────────────────────────────── */
+  --label\/higher-contrast: #ffffff;
+  --label\/primary:         #ffffff;
+  --label\/secondary:       #e2e6e9f2; /* rgba(226,230,233,0.949) */
+  --label\/tertiary:        #abb3bad9; /* rgba(171,179,186,0.851) */
+  --label\/quaternary:      #61666bcc; /* rgba(97,102,107,0.8)   */
+  --label\/oncolor:         #f0f2f4fa; /* rgba(240,242,244,0.98) */
+  --label\/opposite:        #303336e5; /* rgba(48,51,54,0.898)   */
+
+  /* ── Fondos ─────────────────────────────────────────────────────────── */
+  --background\/primary:   #101010;
+  --background\/secondary: #1b1c1d;
+  --background\/tertiary:  #2d2e2f;
+
+  --background-content-box\/primary:   #232526;
+  --background-content-box\/secondary: #2c2e2f;
+  --background-content-box\/tertiary:  #3a3c3d;
+  --background-content-box\/opposite:  #ffffff;
+
+  /* ── Fills ───────────────────────────────────────────────────────────── */
+  --fills\/primary:     #6366695c; /* rgba(99,102,105,0.36)  */
+  --fills\/secondary:   #63666952; /* rgba(99,102,105,0.322) */
+  --fills\/tertiary:    #6366693d; /* rgba(99,102,105,0.239) */
+  --fills\/quaternary:  #6366692e; /* rgba(99,102,105,0.18)  */
+  --fills\/transparent: #ffffff00;
+
+  /* ── Separadores ─────────────────────────────────────────────────────── */
+  --separators\/secondary:   #75777abf; /* rgba(117,119,122,0.75) — confirmado Figma 15720:16685 */
+  --separators\/tertiary:    #545759a6; /* rgba(84,87,89,0.651)   */
+  --separators\/quaternary:  #54575957; /* rgba(84,87,89,0.341)   */
+
+  /* ── Estados ─────────────────────────────────────────────────────────── */
+  --misc\/pressed: #191a1a4d; /* rgba(25,26,26,0.302)  */
+  --misc\/overlay: #101010cc; /* rgba(16,16,16,0.8)    */
+  --misc\/shadow:  #00000014; /* rgba(0,0,0,0.08) — color base para sombras  */
+
+  /* ── Sombras ─────────────────────────────────────────────────────────── */
+  /* Shadow/Box — Figma: DROP_SHADOW color #00000026 offset(0,4) radius 20 */
+  --shadow\/box:   0px 4px 20px 0px rgba(0, 0, 0, 0.15);
+  /* Shadow/Small — Figma: DROP_SHADOW offset(0,2) radius 8 — ListGroup */
+  --shadow\/small: 0px 2px 8px 0px rgba(0, 0, 0, 0.08);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TEMA LIGHT
+   Confirmado: nodo Figma 10259:5161
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root[data-theme="light"] {
+
+  /* ── Colores de acción ──────────────────────────────────────────────── */
+  --colors\/pitufo-100: #0084ff;
+  --colors\/pitufo-10:  #0084ff1a;
+
+  --colors\/tomato-100: #ff3030;     /* ligeramente distinto al dark */
+  --colors\/tomato-60:  #ff434399;
+  --colors\/tomato-10:  #ff30301a;
+
+  --colors\/cucumber-100: #00a35d;   /* ligeramente distinto al dark */
+  --colors\/cucumber-60:  #00ab6199;
+  --colors\/cucumber-10:  #00a35d1a;
+
+  --colors\/egg-100: #eab03e;        /* ligeramente distinto al dark */
+  --colors\/egg-60:  #fcb83199;
+  --colors\/egg-10:  #eab03e1a;
+
+  --colors\/plum-100: #d744d1;
+  --colors\/plum-15:  #d744d126;
+
+  --colors\/valencia-60:  #ff724399;
+  --colors\/valencia-10:  #ff72431a;
+
+  /* ── Texto (label) ──────────────────────────────────────────────────── */
+  /* CLAVE: higher-contrast en light = azul pitufo, NO blanco.
+     Hace que Secondary y Tertiary tengan texto azul sobre fondo claro. */
+  --label\/higher-contrast: #0084ff;
+  --label\/primary:         #000000;
+  --label\/secondary:       #303336e5; /* rgba(48,51,54,0.898)     */
+  --label\/tertiary:        #61666b99; /* rgba(97,102,107,0.6)     */
+  --label\/quaternary:      #abb3bad9; /* rgba(171,179,186,0.851)  */
+  --label\/oncolor:         #ffffff;   /* blanco puro (vs off-white en dark) */
+  --label\/opposite:        #e2e6e9f2; /* rgba(226,230,233,0.949)  */
+
+  /* ── Fondos ─────────────────────────────────────────────────────────── */
+  --background\/primary:   #e4e6e7;
+  --background\/secondary: #f7f7f8;
+  --background\/tertiary:  #ffffff;
+
+  --background-content-box\/primary:   #f7f8f8;
+  --background-content-box\/secondary: #ffffff;
+  --background-content-box\/tertiary:  #f7f8f8;
+  --background-content-box\/opposite:  #2c2e2f;
+
+  /* ── Fills ───────────────────────────────────────────────────────────── */
+  --fills\/primary:     #8f99a333; /* rgba(143,153,163,0.2)   */
+  --fills\/secondary:   #8f99a329; /* rgba(143,153,163,0.16)  */
+  --fills\/tertiary:    #8f99a31f; /* rgba(143,153,163,0.122) */
+  --fills\/quaternary:  #8f99a314; /* rgba(143,153,163,0.078) */
+  --fills\/transparent: #ffffff00;
+
+  /* ── Separadores ─────────────────────────────────────────────────────── */
+  --separators\/secondary:   #75777a40; /* rgba(117,119,122,0.25) — confirmado Figma 15721:17320 */
+  --separators\/tertiary:   #c4cacfa6;  /* rgba(196,202,207,0.651) */
+  --separators\/quaternary: #c2cad157;  /* rgba(194,202,209,0.341) */
+
+  /* ── Estados ─────────────────────────────────────────────────────────── */
+  --misc\/pressed: #191a1a0f; /* rgba(25,26,26,0.059) — mucho menos que dark */
+  --misc\/overlay: #10101080; /* rgba(16,16,16,0.502)  */
+  --misc\/shadow:  #0000000a; /* rgba(0,0,0,0.04) — más suave que dark        */
+
+  /* ── Sombras ─────────────────────────────────────────────────────────── */
+  /* Más suave que dark — el fondo claro hace que 0.15 sea demasiado duro */
+  --shadow\/box:   0px 4px 20px 0px rgba(0, 0, 0, 0.06);
+  --shadow\/small: 0px 2px 8px 0px rgba(0, 0, 0, 0.04);
+}

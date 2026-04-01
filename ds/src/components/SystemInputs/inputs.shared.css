@@ -1,0 +1,111 @@
+/**
+ * SystemInputs — estilos compartidos
+ * DS Back Office Mobile · FEljlfuJJLO8TzfwShLKoR
+ *
+ * Los tres inputs (TextInput, Dropdown, DatePicker) comparten:
+ *   - wrapper flex-col + gap 8px
+ *   - label 12px Regular label/tertiary
+ *   - caja fills/primary · padding 16px 24px · border-radius 8px
+ *   - texto input 14px Regular label/secondary
+ *   - placeholder 14px Regular label/tertiary
+ *   - estado disabled fills/quaternary
+ *   - borde focus colors/pitufo-100 (accent) · error tomato-100
+ *   - mensaje de error 12px Medium colors/tomato-100
+ */
+
+/* ─── Wrapper externo ────────────────────────────────────────────────────── */
+
+.si-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ─── Label ──────────────────────────────────────────────────────────────── */
+
+.si-label {
+  font-family: var(--font-family);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--label\/tertiary);
+  width: 100%;
+  margin: 0; /* reset browser default <p> margin */
+}
+
+.si-label--disabled {
+  color: var(--label\/quaternary);
+}
+
+/* ─── Caja del input ─────────────────────────────────────────────────────── */
+
+.si-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px 24px;
+  border-radius: 8px;
+  background-color: var(--fills\/primary);
+  border: 1px solid transparent;
+  cursor: text;
+  transition: border-color 0.15s ease;
+}
+
+/* Foco: color de acento del DS */
+.si-box:focus-within {
+  border-color: var(--colors\/pitufo-100);
+}
+
+/* El error sobreescribe el foco */
+.si-box--error,
+.si-box--error:focus-within {
+  border-color: var(--colors\/tomato-100);
+}
+
+.si-box--disabled {
+  background-color: var(--fills\/quaternary);
+  cursor: not-allowed;
+}
+
+/* ─── Texto / placeholder ────────────────────────────────────────────────── */
+
+.si-value {
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--label\/secondary);
+  flex: 1 0 0;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.si-value--placeholder {
+  color: var(--label\/tertiary);
+  font-weight: 400;
+}
+
+.si-value--disabled {
+  color: var(--label\/quaternary);
+}
+
+.si-value--selected {
+  font-weight: 500; /* Medium para item seleccionado en Dropdown y DatePicker */
+}
+
+/* ─── Mensaje de error ───────────────────────────────────────────────────── */
+
+.si-error-msg {
+  font-family: var(--font-family);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: normal;
+  color: var(--colors\/tomato-100);
+  margin: 0; /* reset browser default <p> margin */
+}

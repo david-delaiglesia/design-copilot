@@ -1,0 +1,139 @@
+/**
+ * Header — DS Back Office Mobile
+ * Nodo Figma: 6018:17982 (FEljlfuJJLO8TzfwShLKoR)
+ *
+ * Reglas críticas (CLAUDE.md):
+ *   - Siempre fijo — nunca hace scroll
+ *   - home: accedida desde tab bar
+ *   - navigation: drill-down, lleva ←
+ *   - modal: sobre contenido existente, lleva ×
+ *   - menu: home con menú oculto, lleva ≡
+ *   - Logo solo en type="home", nunca clickable
+ *   - Máximo 3 acciones — si el brief propone más, preguntar al diseñador
+ */
+
+/* ─── Base ───────────────────────────────────────────────────────────────── */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+
+  height: 80px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  box-sizing: border-box;
+
+  background-color: var(--background-content-box\/secondary);
+  border-bottom: 1px solid var(--separators\/quaternary);
+}
+
+/* Storybook: quita el fixed */
+.header--static {
+  position: relative;
+}
+
+/* En tablet/desktop deja espacio para el Tab Bar lateral (78px) */
+@media (min-width: 600px) {
+  .header {
+    left: 78px;
+  }
+
+  .header--static {
+    left: 0;
+  }
+}
+
+/* ─── Lado izquierdo ─────────────────────────────────────────────────────── */
+
+.header__left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+/* ─── Logo ───────────────────────────────────────────────────────────────── */
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  pointer-events: none; /* Logo nunca clickable */
+  user-select: none;
+}
+
+.header__logo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+}
+
+/* ─── Título ─────────────────────────────────────────────────────────────── */
+
+.header__title {
+  font-family: var(--font-family);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--label\/secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1 0 0;
+  min-width: 0;
+  margin: 0;
+}
+
+/* ─── Botón de icono (touch target 48×48px) ──────────────────────────────── */
+
+.header__icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  padding: 0;
+
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 100px;
+
+  color: var(--label\/secondary);
+  transition: background-color 0.15s ease;
+}
+
+.header__icon-btn:hover {
+  background-color: var(--fills\/quaternary);
+}
+
+.header__icon-btn:active {
+  background-color: var(--misc\/pressed);
+}
+
+.header__icon-btn:focus-visible {
+  outline: 2px solid var(--colors\/pitufo-100);
+  outline-offset: 2px;
+}
+
+/* ─── Lado derecho — acciones ────────────────────────────────────────────── */
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}

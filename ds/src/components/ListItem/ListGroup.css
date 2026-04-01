@@ -1,0 +1,26 @@
+/**
+ * ListGroup — estilos del contenedor Card-like
+ * Referencia visual: nodo Figma 15720:16685
+ */
+
+.list-group {
+  background-color: var(--background-content-box\/secondary);
+  border-radius: 16px;
+  /* Shadow/Small — token definido en tokens.css, cambia con el tema */
+  box-shadow: var(--shadow\/small);
+  overflow: hidden; /* clipa las filas en las esquinas redondeadas */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* El separador del primer ítem es transparente — mantiene 1px en el flujo
+   para que el gap-8 de li-contents--multiline actúe de forma consistente en todos los ítems */
+.list-group .li-row:first-child .li-divider {
+  background-color: transparent;
+}
+
+/* Dentro del grupo, separador más visible (separators/secondary) */
+.list-group {
+  --li-divider-color: var(--separators\/secondary);
+}

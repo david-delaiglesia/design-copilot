@@ -1,0 +1,229 @@
+/**
+ * ListItem — estilos específicos
+ * Nodo Figma: 14292:242 (actualizado)
+ */
+
+/* ─── Fila ───────────────────────────────────────────────────────────────── */
+
+.li-row {
+  display: flex;
+  align-items: center;
+  min-height: 56px;
+  padding-left: 8px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Sin icono: padding izquierdo mayor para compensar el espacio del icono */
+.li-row--no-icon {
+  padding-left: 16px;
+}
+
+/* Lines=+3: icono y contenido se alinean al tope, padding inferior 8px */
+.li-row--multiline {
+  align-items: flex-start;
+  padding-bottom: 8px; /* confirmado Figma: pb-[8px] en el row de +3 */
+}
+
+.li-row--clickable {
+  cursor: pointer;
+}
+
+.li-row--clickable:active {
+  background-color: var(--misc\/pressed);
+}
+
+.li-row--clickable:focus-visible {
+  outline: 2px solid var(--colors\/pitufo-100);
+  outline-offset: -2px;
+}
+
+/* ─── Icono izquierdo ────────────────────────────────────────────────────── */
+
+/* Lines=1 y Lines=2: icono al nivel de la fila */
+.li-icon-wrap {
+  display: flex;
+  align-items: center;
+  padding-right: 8px; /* gap entre icono y contenido */
+  flex-shrink: 0;
+}
+
+/* Lines=+3: icono con py-8px para alinearse con el texto (confirma Figma: py-[8px]) */
+.li-icon-wrap--top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-right: 8px; /* mismo gap que Lines=1/2 */
+  align-self: flex-start;
+}
+
+/* Fondo 32×32 del icono */
+.li-icon-bg {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background-color: var(--fills\/primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--label\/tertiary);
+}
+
+/* ─── Contenido ──────────────────────────────────────────────────────────── */
+
+.li-contents {
+  flex: 1 0 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding-right: 8px; /* confirmado Figma: pr-[8px] en Contents */
+}
+
+/* Lines=+3: gap de 8px — el separador (1px, siempre en flujo) + gap = 9px antes del cuerpo */
+.li-contents--multiline {
+  gap: 8px;
+}
+
+/* ─── Separador ──────────────────────────────────────────────────────────── */
+
+.li-divider {
+  height: 1px;
+  flex-shrink: 0;
+  /* Siempre ocupa 1px en el flujo — el ListGroup lo hace transparente en el primer ítem
+     en lugar de display:none, para que el gap-8 siempre actúe de forma consistente */
+  background-color: var(--li-divider-color, var(--separators\/quaternary));
+}
+
+/* ─── Cuerpo (título + trailing) ─────────────────────────────────────────── */
+
+.li-body {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 55px; /* separador (1px) + body (55px) = 56px min-height de la fila */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Lines=+3: top-alineado, gap-8px (no 12px), sin padding-bottom extra */
+.li-body--top {
+  align-items: flex-start;
+  min-height: unset;
+  gap: 8px; /* confirmado Figma: gap-[8px] entre texto y trailing en +3 */
+}
+
+/* Trailing top-alineado en Lines=+3 */
+.li-body--top .li-trailing {
+  align-self: flex-start;
+}
+
+/* ─── Área de texto ──────────────────────────────────────────────────────── */
+
+.li-text {
+  flex: 1 0 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Lines=+3: gap de 8px entre el bloque título+subtítulo y el tag */
+.li-text--with-tag {
+  gap: 8px;
+}
+
+/* Bloque interior título+subtítulo para Lines=+3 */
+.li-text-top {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.li-title {
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 500; /* Medium — Paragraphs/Body/Medium */
+  line-height: normal;
+  color: var(--label\/secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.li-subtitle {
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 400; /* Regular — Controls/Control/Regular */
+  line-height: normal;
+  color: var(--label\/secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0;
+}
+
+/* ─── Tag ────────────────────────────────────────────────────────────────── */
+
+.li-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: var(--colors\/tomato-10);
+  align-self: flex-start;
+}
+
+.li-tag-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--colors\/tomato-100);
+}
+
+.li-tag-label {
+  font-family: var(--font-family);
+  font-size: 12px;
+  font-weight: 500; /* Paragraphs/Caption/Medium-UPP */
+  line-height: normal;
+  color: var(--colors\/tomato-100);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ─── Trailing (accessory + chevron) ─────────────────────────────────────── */
+
+/* Ancho fijo 35px — confirmado Figma: w-[35px] en todos los variants */
+.li-trailing {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 35px;
+  flex-shrink: 0;
+  gap: 4px;
+}
+
+.li-accessory {
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 700; /* Bold — Paragraphs/Body/Bold */
+  line-height: normal;
+  color: var(--label\/secondary);
+  white-space: nowrap;
+}
+
+/* Chevron — icono 16px directo, sin wrapper de botón
+   label/higher-contrast: dark → #ffffff | light → #0084ff (pitufo)
+   Confirmado Figma: 16px/Chevron, no button */
+.li-chevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--label\/higher-contrast);
+}

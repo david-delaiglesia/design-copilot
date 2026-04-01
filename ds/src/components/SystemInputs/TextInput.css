@@ -1,0 +1,65 @@
+/**
+ * TextInput — estilos específicos
+ * Nodo Figma: 789:193
+ */
+
+/* Input nativo: sin estilos — hereda del wrapper */
+.ti-box {
+  cursor: text;
+}
+
+.ti-input {
+  flex: 1 0 0;
+  min-width: 0;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--label\/secondary);
+
+  cursor: inherit;
+}
+
+.ti-input::placeholder {
+  color: var(--label\/tertiary);
+  font-weight: 400;
+}
+
+.ti-input:disabled {
+  color: var(--label\/quaternary);
+  cursor: not-allowed;
+}
+
+.ti-input:disabled::placeholder {
+  color: var(--label\/quaternary);
+}
+
+/* Botón toggle ojo (contraseña) */
+.ti-eye-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--label\/tertiary);
+  transition: color 0.15s ease;
+}
+
+.ti-eye-btn:hover {
+  color: var(--label\/secondary);
+}
+
+.ti-eye-btn--disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

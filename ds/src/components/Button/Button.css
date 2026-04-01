@@ -1,0 +1,196 @@
+/**
+ * Button — DS Back Office Mobile
+ * Nodo Figma: 3542:9866 (FEljlfuJJLO8TzfwShLKoR)
+ *
+ * Tokens de referencia: src/tokens/tokens.css
+ * NUNCA hardcodear colores ni tamaños — usar siempre var(--token).
+ */
+
+/* ─── Base ───────────────────────────────────────────────────────────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-weight: 500;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--colors\/pitufo-100);
+  outline-offset: 2px;
+}
+
+.btn-label {
+  line-height: normal;
+}
+
+/* ─── Tamaños ────────────────────────────────────────────────────────────── */
+
+/* L — 56px, radius 12px, font 16px, icon 24px, gap 8px */
+.btn--size-l {
+  height: 56px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  font-size: 16px;
+  gap: 8px;
+}
+.btn--size-l.btn--icon-only {
+  padding: 20px;
+  width: 56px;
+}
+
+/* M — 40px, radius 100px, font 14px, icon 16px, gap 8px */
+.btn--size-m {
+  height: 40px;
+  padding: 12px 16px;
+  border-radius: var(--borderradius\/full);
+  font-size: 14px;
+  gap: 8px;
+}
+.btn--size-m.btn--icon-only {
+  padding: 12px;
+  width: 40px;
+}
+
+/* S — 32px, radius 100px, font 12px, icon 16px, gap 4px */
+.btn--size-s {
+  height: 32px;
+  padding: 8px 12px;
+  border-radius: var(--borderradius\/full);
+  font-size: 12px;
+  gap: 4px;
+}
+.btn--size-s.btn--icon-only {
+  padding: 8px;
+  width: 32px;
+}
+
+/* ─── Iconos placeholder ─────────────────────────────────────────────────── */
+
+.btn-icon-placeholder {
+  display: inline-block;
+  border-radius: 2px;
+  background: currentColor;
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+/* ─── PRIMARY ────────────────────────────────────────────────────────────── */
+
+.btn--primary {
+  background-color: var(--colors\/pitufo-100);
+  color: var(--label\/oncolor);
+}
+
+.btn--primary.btn--state-hover,
+.btn--primary:hover:not(:disabled) {
+  background-color: var(--colors\/pitufo-60);
+}
+
+.btn--primary.btn--state-pressed,
+.btn--primary:active:not(:disabled) {
+  background-color: var(--colors\/pitufo-100);
+  /* misc/pressed overlay */
+  box-shadow: inset 0 0 0 100vmax var(--misc\/pressed);
+}
+
+.btn--primary.btn--state-disabled,
+.btn--primary:disabled {
+  background-color: var(--colors\/pitufo-10);
+  color: var(--label\/quaternary);
+  cursor: not-allowed;
+}
+
+/* ─── SECONDARY ──────────────────────────────────────────────────────────── */
+
+.btn--secondary {
+  background-color: var(--fills\/primary);
+  color: var(--label\/higher-contrast);
+}
+
+.btn--secondary.btn--state-hover,
+.btn--secondary:hover:not(:disabled) {
+  /* white 15% overlay sobre fills/primary */
+  background-color: var(--fills\/primary);
+  box-shadow: inset 0 0 0 100vmax rgba(255, 255, 255, 0.15);
+}
+
+.btn--secondary.btn--state-pressed,
+.btn--secondary:active:not(:disabled) {
+  background-color: var(--fills\/primary);
+  box-shadow: inset 0 0 0 100vmax var(--misc\/pressed);
+}
+
+.btn--secondary.btn--state-disabled,
+.btn--secondary:disabled {
+  background-color: var(--fills\/quaternary);
+  color: var(--label\/quaternary);
+  cursor: not-allowed;
+}
+
+/* ─── TERTIARY ───────────────────────────────────────────────────────────── */
+
+.btn--tertiary {
+  background-color: var(--fills\/transparent);
+  color: var(--label\/higher-contrast);
+}
+
+.btn--tertiary.btn--state-hover,
+.btn--tertiary:hover:not(:disabled) {
+  background-color: var(--fills\/quaternary);
+}
+
+.btn--tertiary.btn--state-pressed,
+.btn--tertiary:active:not(:disabled) {
+  background-color: var(--fills\/quaternary);
+  box-shadow: inset 0 0 0 100vmax var(--misc\/pressed);
+}
+
+.btn--tertiary.btn--state-disabled,
+.btn--tertiary:disabled {
+  background-color: var(--fills\/transparent);
+  color: var(--label\/quaternary);
+  cursor: not-allowed;
+}
+
+/* ─── LOADING ────────────────────────────────────────────────────────────── */
+
+.btn--loading {
+  cursor: not-allowed;
+  /* Loading usa el mismo fondo que Default de cada Priority */
+}
+
+/* Spinner */
+.btn-spinner {
+  display: inline-block;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  animation: btn-spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes btn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Loading — tamaño L usa spinner 32px */
+.btn--size-l.btn--loading {
+  padding: 12px 20px;
+}
+
+/* Loading — tamaños M y S usan spinner 24px */
+.btn--size-m.btn--loading,
+.btn--size-s.btn--loading {
+  padding: 8px 16px;
+}

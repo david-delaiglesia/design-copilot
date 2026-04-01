@@ -1,0 +1,179 @@
+/**
+ * Dialog — estilos del shell modal
+ * Referencia visual: nodos Figma 15721:17379, 4062:2383
+ */
+
+/* ─── Overlay ────────────────────────────────────────────────────────────── */
+
+.dialog-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background-color: var(--misc\/overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+/* ─── Surface (contenedor del dialog) ───────────────────────────────────── */
+
+/* Fondo background/tertiary — confirmado Figma: #2d2e2f dark / #ffffff light */
+.dialog-surface {
+  background-color: var(--background\/tertiary);
+  border-radius: 8px;
+  width: 342px;
+  max-width: 100%;
+  max-height: min(664px, calc(100vh - 48px));
+  overflow-y: auto;
+  outline: none;
+  position: relative;
+}
+
+/* ─── Interior compartido (padding y gap de secciones) ──────────────────── */
+
+/* padding: 48px 32px 32px — confirmado Figma */
+.dialog-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 32px 32px;
+  gap: 48px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* ─── Texto (título + subtítulo) ─────────────────────────────────────────── */
+
+.dialog-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
+  width: 100%;
+}
+
+.dialog-title {
+  font-family: var(--font-family);
+  font-size: 20px;
+  font-weight: 700; /* Titles/Title/Bold */
+  line-height: normal;
+  color: var(--label\/secondary);
+  width: 100%;
+  margin: 0;
+}
+
+.dialog-subtitle {
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 400; /* Paragraphs/Body/Regular */
+  line-height: normal;
+  color: var(--label\/tertiary);
+  width: 100%;
+  margin: 0;
+}
+
+/* ─── Botones (Buttonery) ────────────────────────────────────────────────── */
+
+.dialog-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* gap-16 para FeedbackDialog (2 botones), gap-24 para InputDialog */
+.dialog-buttons--gap-16 {
+  gap: 16px;
+}
+
+.dialog-buttons--gap-24 {
+  gap: 24px;
+}
+
+/* Botón Primary del dialog */
+.dialog-btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  width: 100%;
+  padding: 16px 24px;
+  border-radius: 12px;
+  border: none;
+  background-color: var(--colors\/pitufo-100);
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.dialog-btn-primary:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.dialog-btn-primary:not(:disabled):active {
+  background-color: var(--colors\/pitufo-60);
+}
+
+.dialog-btn-primary .dialog-btn-label {
+  color: var(--label\/oncolor);
+}
+
+/* Botón Tertiary del dialog */
+.dialog-btn-tertiary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  width: 100%;
+  padding: 16px 24px;
+  border-radius: 12px;
+  border: none;
+  background-color: var(--fills\/transparent);
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.dialog-btn-tertiary:active {
+  background-color: var(--misc\/pressed);
+}
+
+.dialog-btn-tertiary .dialog-btn-label {
+  color: var(--label\/higher-contrast);
+}
+
+/* Etiqueta compartida de botón */
+.dialog-btn-label {
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 500; /* Controls/Large Control/Medium */
+  line-height: normal;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ─── Botón de cierre (InputDialog close=Yes) ───────────────────────────── */
+
+.dialog-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--label\/higher-contrast);
+  border-radius: 50%;
+  padding: 0;
+}
+
+.dialog-close:active {
+  background-color: var(--misc\/pressed);
+}
