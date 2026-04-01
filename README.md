@@ -1,35 +1,39 @@
 # Design Copilot
 
-Copilot conversacional para diseñadores. Describe una pantalla en lenguaje natural y el copilot la construye respetando el design system.
+Copilot conversacional para diseñadores. Describe una pantalla en lenguaje natural y el copilot la construye respetando el design system — sin tocar Figma ni escribir código.
 
-## Setup
+## Instalación
 
 ```bash
-# 1. Clona el repo
-git clone https://github.com/david-delaiglesia/design-copilot.git
-cd design-copilot
-
-# 2. Instala dependencias del DS
-cd ds && npm install && cd ..
-
-# 3. Instala dependencias del starter
-cd starter && npm install && cd ..
+curl -fsSL https://raw.githubusercontent.com/david-delaiglesia/design-copilot/main/install.sh | bash
 ```
+
+El script instala todo automáticamente y registra el skill en Claude desktop.
+
+> **Repo privado:** cuando git pida credenciales, introduce tu usuario y un Personal Access Token de GitHub con scope `repo`.
 
 ## Uso
 
-1. Abre la carpeta `design-copilot` en Claude desktop
+1. Abre **Claude desktop**
 2. Escribe `/design-copilot`
 3. Describe la pantalla que necesitas
-4. El copilot hace las preguntas, genera el código y te muestra la preview
+4. El copilot hace las preguntas, genera el código y muestra la preview
 
-## Estructura
+## Actualizar
+
+El mismo comando de instalación detecta si ya está instalado y actualiza a la última versión:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/david-delaiglesia/design-copilot/main/install.sh | bash
+```
+
+## Estructura interna
 
 ```
-design-copilot/
-├── CLAUDE.md              → Reglas del design system
+~/.design-copilot/        ← directorio de instalación
+├── CLAUDE.md             → reglas del design system
 ├── .claude/skills/
-│   └── design-copilot.md → El copilot
-├── ds/                    → Design system (componentes + tokens)
-└── starter/               → Proyecto React donde se generan las pantallas
+│   └── design-copilot.md → el skill (se copia a ~/.claude/skills/)
+├── ds/                   → design system (componentes + tokens)
+└── starter/              → proyecto React donde se generan las pantallas
 ```

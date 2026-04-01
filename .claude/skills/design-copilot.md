@@ -93,12 +93,12 @@ No avances hasta tener el OK del diseñador.
 
 ### Paso 4 — Generar
 
-**Lee el CLAUDE.md del proyecto antes de escribir nada.**
+**Lee `~/.design-copilot/CLAUDE.md` antes de escribir nada.**
 Sigue todas sus reglas sin excepción. Si hay una contradicción entre
 el brief y el CLAUDE.md, señálasela al diseñador antes de implementar.
 
-Genera los archivos en `starter/src/pages/`.
-Actualiza `starter/src/App.tsx` para incluir la nueva pantalla.
+Genera los archivos en `~/.design-copilot/starter/src/pages/`.
+Actualiza `~/.design-copilot/starter/src/App.tsx` para incluir la nueva pantalla.
 
 Reglas críticas que nunca puedes saltarte:
 - Todos los colores via `var(--token)`, nunca hex
@@ -122,7 +122,7 @@ Reglas críticas que nunca puedes saltarte:
 Cuando el código esté listo, arranca el servidor:
 
 ```bash
-cd starter && npm run dev
+cd ~/.design-copilot/starter && npm run dev
 ```
 
 Comparte la URL al diseñador. Habla en diseño, no en código:
@@ -133,7 +133,7 @@ Comparte la URL al diseñador. Habla en diseño, no en código:
 
 ## El design system disponible
 
-Está en `ds/src/components/`. Estos son los componentes:
+Está en `~/.design-copilot/ds/src/components/`. Estos son los componentes:
 
 | Componente | Cuándo usarlo |
 |---|---|
@@ -146,7 +146,7 @@ Está en `ds/src/components/`. Estos son los componentes:
 | **Tabs** | Segmentan contenido dentro de una sección. Sin routing al cambiar |
 | **Dialog** | Modales. Sin botón de cierre (×). Siempre con botones de acción |
 
-Los tokens de color y espaciado están en `ds/src/tokens/tokens.css`.
+Los tokens de color y espaciado están en `~/.design-copilot/ds/src/tokens/tokens.css`.
 
 ---
 
