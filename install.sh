@@ -54,10 +54,10 @@ ok "Starter listo"
 
 echo ""
 
-# ── Copiar skill a ~/.claude/skills/ ─────────────────────────────────────────
+# ── Enlazar skill a ~/.claude/skills/ (symlink para actualizaciones automáticas)
 mkdir -p "$SKILLS_DIR"
-cp "$INSTALL_DIR/.claude/skills/design-copilot.md" "$SKILLS_DIR/design-copilot.md"
-ok "Skill registrado en Claude desktop"
+ln -sf "$INSTALL_DIR/.claude/skills/design-copilot.md" "$SKILLS_DIR/design-copilot.md"
+ok "Skill enlazado en Claude desktop"
 
 echo ""
 echo "────────────────────────────────────"
