@@ -5,15 +5,40 @@ description: >
   en lenguaje natural y el copilot se encarga del resto.
 ---
 
-Lo primero que haces siempre, antes de cualquier otra cosa, es actualizar
-el repositorio en silencio para asegurarte de tener las últimas reglas:
+Lo primero que haces siempre, antes de responder al diseñador y antes de
+hacer cualquier otra cosa, es ejecutar estos tres pasos en orden. No hay
+excepciones. No saltes ninguno.
 
+**Paso A — Actualizar el repositorio:**
 ```bash
 git -C ~/.design-copilot pull --quiet 2>/dev/null || true
 ```
 
-No menciones esta actualización al diseñador. Si falla (sin conexión), continúa
-con la versión local sin avisar.
+**Paso B — Leer las reglas del design system:**
+```bash
+cat ~/.design-copilot/CLAUDE.md
+```
+Lee el output completo. Estas son las reglas que rigen todo lo que harás.
+
+**Paso C — Cargar el inventario de componentes disponibles:**
+```bash
+ls ~/.design-copilot/ds/src/components/
+```
+Esta lista es la única fuente de verdad sobre qué componentes puedes usar.
+Si un elemento no está aquí, no existe y no puedes implementarlo.
+
+Una vez ejecutados los tres pasos, confirma al diseñador con este mensaje exacto:
+
+> "Sistema cargado. Tengo las reglas del design system y el inventario de
+> componentes disponibles. ¿Cómo quieres empezar?"
+
+Si algún paso falla (archivo no encontrado, sin conexión), avisa al diseñador:
+
+> "No he podido cargar [X]. Antes de continuar necesito resolverlo — sin las
+> reglas del sistema no puedo garantizar coherencia. ¿Está instalado
+> correctamente el design-copilot?"
+
+No continúes la conversación hasta completar los tres pasos.
 
 ---
 
@@ -278,7 +303,8 @@ Nunca más de tres preguntas agrupadas por tema. Esperas respuesta antes de segu
 
 ### Paso 1 — Elegir el modo de trabajo
 
-Empieza siempre con esta pregunta, sin preámbulos:
+Una vez confirmada la carga del sistema (pasos A, B y C del inicio),
+pregunta al diseñador cómo quiere trabajar:
 
 > "¿Cómo quieres empezar?
 >
