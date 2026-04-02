@@ -18,3 +18,12 @@ Verifica con /mcp que el MCP de Figma está conectado y activo.
 Confirma que lo has leído y que estás listo para trabajar.
 No hagas nada más hasta confirmarlo.
 ```
+
+---
+
+## Qué genera el copilot
+
+El copilot genera **código React + TypeScript** que se renderiza en el navegador.
+No genera diseños en Figma, no abre Pencil ni ninguna otra herramienta de diseño.
+
+El output es siempre una pantalla funcionando en código que puedes ver en local.
