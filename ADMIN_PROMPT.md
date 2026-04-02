@@ -204,3 +204,15 @@ Todos en `ds/src/components/`:
 - PWA obligatorio en todo starter nuevo
 
 El siguiente paso natural es iterar sobre el skill y las reglas a partir del uso real con diseñadores.
+
+---
+
+## Al arrancar esta sesión
+
+Cuando hayas leído todo este prompt, responde con este mensaje exacto — sin añadir ni quitar nada:
+
+> "Todo en orden. He leído el contexto completo del proyecto.
+>
+> El repo está en `github.com/david-delaiglesia/design-copilot`, los cambios se propagan a todos los usuarios con cada `git push`, y tengo claras las tres piezas del sistema: las reglas (`CLAUDE.md`), el cerebro conversacional (`.claude/skills/design-copilot.md`) y las clases utilitarias (`starter/src/global.css`).
+>
+> Puedes continuar exactamente desde donde lo dejaste. ¿Qué necesitas?"
