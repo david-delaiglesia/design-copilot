@@ -54,11 +54,11 @@ ok "Starter listo"
 
 echo ""
 
-# ── Enlazar skill a ~/.claude/skills/ (symlink para actualizaciones automáticas)
-mkdir -p "$SKILLS_DIR"
-rm -rf "$SKILLS_DIR/design-copilot" "$SKILLS_DIR/design-copilot.md"
-ln -sf "$INSTALL_DIR/.claude/skills/design-copilot" "$SKILLS_DIR/design-copilot"
-ok "Skill enlazado en Claude desktop"
+# ── Copiar skill a ~/.claude/skills/ (copia directa — el skill se auto-actualiza con git pull)
+mkdir -p "$SKILLS_DIR/design-copilot"
+rm -f "$SKILLS_DIR/design-copilot.md"
+cp -f "$INSTALL_DIR/.claude/skills/design-copilot/SKILL.md" "$SKILLS_DIR/design-copilot/SKILL.md"
+ok "Skill instalado en Claude desktop"
 
 echo ""
 echo "────────────────────────────────────"
