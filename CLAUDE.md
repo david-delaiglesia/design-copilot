@@ -73,17 +73,19 @@ No generar nunca desde cero sin haber leído el nodo de Figma.
 
 ## Integridad de componentes
 
-**Los componentes del DS son inmutables.** Se usan tal cual están definidos — nunca se modifican, extienden ni adaptan por cuenta propia.
+**Las vistas siempre se construyen.** Una vista es una pantalla compuesta de componentes del DS. Pedir una vista nunca requiere escalar nada — se implementa siempre con lo disponible.
 
-**Cuando el brief pide algo que un componente no permite:**
-Parar. No inventar. No aproximar. Notificar al diseñador con este mensaje exacto:
+**Los componentes individuales del DS son inmutables.** Se usan tal cual están definidos — nunca se modifican, extienden ni adaptan internamente por cuenta propia.
 
-> "Ese cambio va en contra de lo definido en el design system. No es posible realizarlo con los componentes actuales. Si es necesario, escálalo para que alguien lo cree y lo suba al repositorio."
+**Cuando el brief pide modificar un componente existente** (cambiar su estructura interna, añadir props que no tiene, alterar su comportamiento):
+Parar solo en ese punto concreto y notificar:
 
-**Cuando el brief describe un patrón que no existe en el DS:**
-Avisar antes de implementar:
+> "El componente [X] no soporta [cambio concreto] en su definición actual. Si necesitas esta variante, habría que crearla y subirla al repositorio. ¿Cómo quieres proceder — lo construyo con lo que existe o lo escalamos?"
 
-> "Para [X] no existe un componente en el design system. ¿Quieres que lo construya con elementos base del DS, o lo escalamos para crear el componente?"
+**Cuando el brief describe un elemento visual que no existe como componente en el DS:**
+Avisar antes de implementar ese elemento concreto, sin bloquear el resto de la vista:
+
+> "Para [X] no existe un componente en el design system. Puedo construirlo con elementos base del DS siguiendo el estilo del sistema, o lo escalamos para crear el componente. ¿Cómo prefieres?"
 
 **Cuando hay incoherencia entre vistas:**
 No implementar sin avisar:
