@@ -355,12 +355,42 @@ No avances hasta tener el OK del diseñador.
 
 ---
 
-### Paso 4 — Generar
+### Paso 4 — Mapeo de componentes (obligatorio antes de generar)
+
+**Este paso no es opcional. Sin él, no se escribe ninguna línea de código.**
+
+Lee el directorio `~/.design-copilot/ds/src/components/` para conocer exactamente
+qué componentes existen. Luego mapea cada elemento del brief a un componente del DS:
+
+```
+Elemento del brief          → Componente DS
+─────────────────────────────────────────────
+[elemento 1]                → [componente]
+[elemento 2]                → [componente]
+...
+```
+
+Si algún elemento no tiene correspondencia directa con un componente existente:
+- **Para en ese punto**
+- Notifícaselo al diseñador antes de continuar
+- No avances con ese elemento bajo ningún concepto
+
+> "El elemento [X] no tiene un componente en el DS. No puedo implementarlo.
+> Las opciones son: sustituirlo por [alternativa existente], o escalarlo para
+> que se cree oficialmente. ¿Cómo quieres proceder?"
+
+Solo cuando todos los elementos del brief tienen un componente DS asignado
+puedes avanzar al Paso 5. Si alguno queda sin resolver, la pantalla
+se implementa sin él — o se espera a que el diseñador decida.
+
+---
+
+### Paso 5 — Generar
 
 Genera los archivos en `~/.design-copilot/starter/src/pages/`.
 Actualiza `~/.design-copilot/starter/src/App.tsx` para incluir la nueva pantalla.
 
-Antes de escribir cualquier línea de código, verifica mentalmente esta lista:
+Antes de escribir cualquier línea de código, verifica esta lista:
 - [ ] ¿Todos los colores van con `var(--token)`? ¿Ningún hex directo?
 - [ ] ¿Hay `style={{}}` en JSX? → Eliminarlo, mover a clase CSS
 - [ ] ¿Algún ListItem fuera de `.list-box`? → Nunca
@@ -379,7 +409,7 @@ Si algún punto falla → corregirlo antes de entregar.
 
 ---
 
-### Paso 5 — Preview
+### Paso 6 — Preview
 
 Cuando el código esté listo, arranca el servidor:
 
