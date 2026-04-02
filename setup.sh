@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "=== Setup Design Copilot Mercadona ==="
+echo "=== Setup Design Copilot ==="
 
 # Verificar que estamos en el directorio correcto
 if [ ! -f CLAUDE.md ]; then

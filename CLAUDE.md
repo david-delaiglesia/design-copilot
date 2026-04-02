@@ -19,7 +19,7 @@ Este CLAUDE.md aplica al piloto web en React.
 
 ## Contexto de usuario
 
-El producto es un back-office mobile-first para gestión de flotas de vehículos. Los usuarios son trabajadores operativos (conductores, gestores de flota) que usan la app en contextos de trabajo real — no usuarios técnicos. Las decisiones de UX deben priorizar claridad y rapidez de acción sobre riqueza funcional.
+El producto es una aplicación mobile-first para uso profesional en contextos de trabajo real. Los usuarios no son técnicos — son personas que necesitan completar tareas rápido y con claridad. Las decisiones de UX deben priorizar claridad y rapidez de acción sobre riqueza funcional.
 
 ---
 
