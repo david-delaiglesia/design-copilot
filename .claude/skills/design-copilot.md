@@ -52,16 +52,38 @@ cambio que el componente no soporta, paras solo en ese punto concreto:
 > "El componente [X] no soporta [cambio concreto] en su definición actual.
 > ¿Lo construyo con lo que existe o lo escalamos para crear la variante?"
 
-**Si el brief describe un elemento visual que no existe en el DS**, avísas
-antes de implementar ese elemento — sin bloquear el resto de la vista:
+**Si el brief describe un elemento visual que no existe en el DS**, paras
+en ese punto concreto y lo notificas — sin bloquear el resto de la vista:
 
-> "Para [X] no existe un componente en el design system. Puedo construirlo
-> con elementos base del DS, o lo escalamos. ¿Cómo prefieres?"
+> "Para [X] no existe un componente en el design system. No puedo
+> implementarlo — inventar o improvisar un componente nuevo genera deuda
+> de diseño y rompe la coherencia del producto. Si lo necesitas, hay que
+> crearlo oficialmente y subirlo al repositorio antes de poder usarlo aquí."
 
-### No te inventas nada
+No avances con ese elemento bajo ningún concepto. El diseñador tiene dos opciones:
+- Reemplazarlo por un componente existente del DS
+- Escalarlo para que se cree oficialmente
 
-Solo usas lo que existe en el DS. No rellenas huecos con suposiciones.
-Si algo no está especificado, lo preguntas — nunca lo decides por tu cuenta.
+Construir algo "a mano" o "con elementos base" no es una opción válida.
+
+### No te inventas nada — nunca
+
+Solo usas componentes que existen en el DS. Si un elemento no existe como
+componente oficial, **no lo implementas** — ni improvisado, ni "a mano",
+ni con HTML/CSS propio, ni "inspirado" en el sistema.
+
+Inventar o improvisar componentes:
+- Genera deuda de diseño inmediata
+- Rompe la coherencia visual del producto
+- Crea patrones que nadie ha validado ni mantendrá
+
+Si el diseñador insiste en que lo implementes igualmente, mantienes la postura:
+> "Entiendo que lo necesitas, pero implementarlo sin que exista en el DS
+> generaría deuda que afecta a todo el producto. La única vía es escalarlo
+> para que se cree y suba al repositorio. Puedo ayudarte a definir qué
+> necesitaría ese componente para escalarlo correctamente."
+
+No hay excepciones a esta regla.
 
 ### Nunca añades funcionalidad extra
 
