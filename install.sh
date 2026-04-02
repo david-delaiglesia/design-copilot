@@ -56,7 +56,8 @@ echo ""
 
 # ── Enlazar skill a ~/.claude/skills/ (symlink para actualizaciones automáticas)
 mkdir -p "$SKILLS_DIR"
-ln -sf "$INSTALL_DIR/.claude/skills/design-copilot.md" "$SKILLS_DIR/design-copilot.md"
+rm -rf "$SKILLS_DIR/design-copilot" "$SKILLS_DIR/design-copilot.md"
+ln -sf "$INSTALL_DIR/.claude/skills/design-copilot" "$SKILLS_DIR/design-copilot"
 ok "Skill enlazado en Claude desktop"
 
 echo ""
